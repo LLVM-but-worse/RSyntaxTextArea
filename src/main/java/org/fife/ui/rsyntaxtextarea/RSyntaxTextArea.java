@@ -2654,11 +2654,13 @@ private boolean fractionalFontMetricsEnabled;
 	 * @see InputEvent
 	 */
 	public void setLinkScanningMask(int mask) {
-		mask &= (InputEvent.CTRL_DOWN_MASK|InputEvent.META_DOWN_MASK|
-				InputEvent.ALT_DOWN_MASK|InputEvent.SHIFT_DOWN_MASK);
-		if (mask==0) {
-			throw new IllegalArgumentException("mask argument should be " +
+		if (mask != 0) {
+			mask &= (InputEvent.CTRL_DOWN_MASK | InputEvent.META_DOWN_MASK |
+				InputEvent.ALT_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK);
+			if (mask == 0) {
+				throw new IllegalArgumentException("mask argument should be " +
 					"some combination of InputEvent.*_DOWN_MASK fields");
+			}
 		}
 		linkScanningMask = mask;
 	}
