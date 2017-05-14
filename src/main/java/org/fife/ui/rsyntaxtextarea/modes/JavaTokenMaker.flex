@@ -238,7 +238,7 @@ NonSeparator						= ([^\t\f\r\n\ \(\)\{\}\[\]\;\,\.\=\>\<\!\~\?\:\+\-\*\/\&\|\^\
 IdentifierStart					= ({LetterOrUnderscore}|"$")
 IdentifierPart						= ({IdentifierStart}|{Digit}|("\\"{EscapedSourceCharacter}))
 
-LineTerminator				= (\n)
+LineTerminator				= (\n|\r)
 WhiteSpace				= ([ \t\f])
 
 CharLiteral				= ([\']({AnyCharacterButApostropheOrBackSlash}|{Escape})[\'])
