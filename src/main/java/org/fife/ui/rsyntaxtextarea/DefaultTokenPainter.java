@@ -8,12 +8,9 @@
  */
 package org.fife.ui.rsyntaxtextarea;
 
-import java.awt.Color;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
-
 import javax.swing.text.TabExpander;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 
 /**
@@ -112,7 +109,7 @@ class DefaultTokenPainter implements TokenPainter {
 		int flushIndex = textOffs;
 		Color fg = useSTC ? host.getSelectedTextColor() :
 			host.getForegroundForToken(token);
-		Color bg = selected ? null : host.getBackgroundForToken(token);
+		Color bg = host.getBackgroundForToken(token);
 		g.setFont(host.getFontForTokenType(token.getType()));
 		FontMetrics fm = host.getFontMetricsForTokenType(token.getType());
 
