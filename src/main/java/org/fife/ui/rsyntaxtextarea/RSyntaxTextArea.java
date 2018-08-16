@@ -1757,6 +1757,7 @@ private boolean fractionalFontMetricsEnabled;
 		}
 		if (temp!=null) {
 			temp.textCount = endOffs - temp.getOffset();
+			assert (temp.textCount >= 0);
 			temp.setNextToken(null);
 		}
 

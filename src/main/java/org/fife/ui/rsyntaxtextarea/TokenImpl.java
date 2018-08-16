@@ -304,6 +304,7 @@ public class TokenImpl implements Token {
 		text = t2.getTextArray();
 		textOffset = t2.getTextOffset();
 		textCount = t2.length();
+		assert (textCount >= 0);
 		setOffset(t2.getOffset());
 		setType(t2.getType());
 		hyperlink = t2.isHyperlink();
@@ -564,6 +565,7 @@ public class TokenImpl implements Token {
 
 	@Override
 	public float getWidth(RSyntaxTextArea textArea, TabExpander e, float x0) {
+		assert (textCount >= 0);
 		return getWidthUpTo(textCount, textArea, e, x0);
 	}
 
@@ -845,6 +847,8 @@ public class TokenImpl implements Token {
 		this.text = line;
 		this.textOffset = beg;
 		this.textCount = end - beg + 1;
+		assert(textCount <= text.length);
+		assert(textCount >= 0);
 		this.setType(type);
 		this.setOffset(offset);
 		nextToken = null;
