@@ -1,3 +1,4 @@
+# RSyntaxTextArea
 [![Build Status](https://travis-ci.org/bobbylight/RSyntaxTextArea.svg?branch=master)](https://travis-ci.org/bobbylight/RSyntaxTextArea)
 [![Coverage Status](https://coveralls.io/repos/bobbylight/RSyntaxTextArea/badge.svg)](https://coveralls.io/r/bobbylight/RSyntaxTextArea)
 
@@ -6,7 +7,7 @@ the box, it supports syntax highlighting for 40+ programming languages, code fol
 and has add-on libraries for code completion and spell checking.  Syntax highlighting for additional languages
 [can be added](https://github.com/bobbylight/RSyntaxTextArea/wiki) via tools such as [JFlex](http://jflex.de).
 
-RSyntaxTextArea is available under a [modified BSD license](https://github.com/bobbylight/RSyntaxTextArea/blob/master/src/main/dist/RSyntaxTextArea.License.txt).
+RSyntaxTextArea is available under a [modified BSD license](https://github.com/bobbylight/RSyntaxTextArea/blob/master/RSyntaxTextArea/src/main/dist/RSyntaxTextArea.License.txt).
 For more information, visit [http://bobbylight.github.io/RSyntaxTextArea/](http://bobbylight.github.io/RSyntaxTextArea/).
 
 Available in the [Maven Central repository](http://search.maven.org/#search%7Cga%7C1%7Crsyntaxtextarea%20jar) (`com.fifesoft:rsyntaxtextarea:XXX`).
@@ -17,13 +18,10 @@ SNAPSHOT builds of the in-development, unreleased version are hosted on [Sonatyp
 RSyntaxTextArea uses [Gradle](http://gradle.org/) to build.  To compile, run
 all unit tests, and create the jar, run:
 
-    ./gradlew build --warning-mode=all
+    ./gradlew build --warning-mode all
 
-RSTA requires a Java 8 JDK to compile, but builds classes with Java 6 binary compatibility if possible
-(and indeed, the artifacts in Maven Central are Java 6-compatible).
-To that end, the boot classpath will be set to accommodate this if a variable `java6CompileBootClasspath`
-is set to the location of `rt.jar` in a Java 6 JDK.  This can be added to `<maven-home>/gradle.properties`
-if desired, to avoid diffs in the project's `gradle.properties`.
+RSTA 3.0 and newer requires Java 8 to compile and run.  If you need
+Java 6 compatibility, you'll need to use a 2.6.x version.
 
 # Example Usage
 
@@ -56,10 +54,8 @@ public class TextEditorDemo extends JFrame {
 
    public static void main(String[] args) {
       // Start all Swing applications on the EDT.
-      SwingUtilities.invokeLater(new Runnable() {
-         public void run() {
-            new TextEditorDemo().setVisible(true);
-         }
+      SwingUtilities.invokeLater(() -> {
+        new TextEditorDemo().setVisible(true);
       });
    }
 
@@ -78,6 +74,5 @@ RSyntaxTextArea provides syntax highlighting, code folding, and many other featu
 
 * Add an issue on GitHub
 * Peruse [the wiki](https://github.com/bobbylight/RSyntaxTextArea/wiki)
-* Ask in the [project forum](http://fifesoft.com/forum/)
 * Check the project's [home page](http://bobbylight.github.io/RSyntaxTextArea/)
 

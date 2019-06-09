@@ -1,12 +1,8 @@
 .idea
 *.iml
-bin
-dist
-javadoc
 rsyntaxtextarea_*.zip
 *.java~
 build
 .gradle
 /.settings/
-.checkstyle
-
+out/
